@@ -48,4 +48,14 @@ SELECT Weath1.id
 
 FROM Weather Weath1, Weather Weath2
 
-WHERE dateDiff(Weath1.recordDate, Weath2.recordDate) = 1 AND Weath1.temperature  > Weath2.temperatur
+WHERE dateDiff(Weath1.recordDate, Weath2.recordDate) = 1 AND Weath1.temperature  > Weath2.temperature
+
+5) Big Countries
+
+https://leetcode.com/problems/big-countries/
+
+SELECT name, population , area    
+
+FROM World 
+
+WHERE area >= 3000000 OR population >= 25000000
