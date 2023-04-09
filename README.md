@@ -8,10 +8,10 @@ https://leetcode.com/problems/customers-who-never-order/
 
 select name as Customers
 
- from customers
+from customers
 
- left join orders
+left join orders
 
-    on Customers.id = Orders.customerId
+on Customers.id = Orders.customerId
 
 where customerId IS NULL
