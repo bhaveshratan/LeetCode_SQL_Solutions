@@ -39,3 +39,13 @@ SELECT teacher_id , COUNT( DISTINCT subject_id ) as cnt
 FROM Teacher
 
 GROUP BY teacher_id;
+
+4) Rising Temperature
+
+https://leetcode.com/problems/rising-temperature/
+
+SELECT Weath1.id 
+
+FROM Weather Weath1, Weather Weath2
+
+WHERE dateDiff(Weath1.recordDate, Weath2.recordDate) = 1 AND Weath1.temperature  > Weath2.temperatur
