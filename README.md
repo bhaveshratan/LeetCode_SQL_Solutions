@@ -61,7 +61,7 @@ FROM World
 WHERE area >= 3000000 OR population >= 25000000
 
 
-6) 182. Duplicate Emails
+6) Duplicate Emails
 
 https://leetcode.com/problems/duplicate-emails/
 
