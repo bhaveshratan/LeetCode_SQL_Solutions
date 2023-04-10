@@ -94,3 +94,41 @@ WHERE sales_id NOT IN (
   WHERE name = 'RED'
 
 )
+
+8) Find Customer Referee
+
+https://leetcode.com/problems/find-customer-referee/
+
+SELECT name 
+
+FROM Customer
+
+WHERE referee_id IS NULL OR referee_id !=2
+
+9) Find Followers Count
+
+https://leetcode.com/problems/find-followers-count/
+
+SELECT user_id , COUNT(follower_id) as followers_count
+
+FROM Followers 
+
+GROUP BY user_id 
+
+ORDER BY user_id 
+
+10) Triangle Judgement
+
+https://leetcode.com/problems/triangle-judgement/
+
+SELECT x,y,z,
+
+CASE 
+
+  WHEN (x+y > z AND y+z > x AND x+z > y) THEN 'Yes'ELSE 'No'
+
+END AS triangle
+
+FROM Triangle;
+
+11) 
