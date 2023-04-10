@@ -72,3 +72,25 @@ FROM Person
 GROUP BY email
 
 HAVING COUNT(email) > 1
+
+7) Sales Person
+
+https://leetcode.com/problems/sales-person/
+
+SELECT name 
+
+FROM salesperson
+
+WHERE sales_id NOT IN (
+
+  SELECT sales_id
+
+  FROM orders
+
+  LEFT JOIN Company  
+
+  ON orders.com_id = Company.com_id 
+
+  WHERE name = 'RED'
+
+)
