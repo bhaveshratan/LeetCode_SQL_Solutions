@@ -131,4 +131,56 @@ END AS triangle
 
 FROM Triangle;
 
-11) 
+11) Employee Bonus
+
+https://leetcode.com/problems/employee-bonus/
+
+SELECT name , bonus 
+
+FROM Employee
+
+LEFT JOIN Bonus
+
+ON Employee.empId = Bonus.empId 
+
+WHERE bonus < 1000 OR bonus IS NULL
+
+12) Patients With a Condition
+
+https://leetcode.com/problems/patients-with-a-condition/
+
+
+13) Patients With a Condition
+
+https://leetcode.com/problems/patients-with-a-condition/
+
+SELECT * 
+
+FROM Patients
+
+WHERE conditions  LIKE 'DIAB1%' OR conditions  LIKE '% DIAB1%'                     # Note the space before DIAB1
+
+14) Customer Who Visited but Did Not Make Any Transactions
+
+https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/
+
+SELECT customer_id, COUNT(visit_id) AS count_no_trans 
+
+FROM Visits
+
+WHERE visit_id NOT IN
+
+ (
+
+  SELECT visit_id
+
+  FROM Transactions
+
+  GROUP BY visit_id
+
+)
+
+GROUP BY customer_id
+
+
+
