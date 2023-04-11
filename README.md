@@ -145,9 +145,19 @@ ON Employee.empId = Bonus.empId
 
 WHERE bonus < 1000 OR bonus IS NULL
 
-12) Patients With a Condition
+12) Employees Earning More Than Their Managers
 
-https://leetcode.com/problems/patients-with-a-condition/
+https://leetcode.com/problems/employees-earning-more-than-their-managers/
+
+SELECT e1.name  AS Employee 
+
+FROM Employee  e1
+
+LEFT JOIN Employee e2
+
+ON e1.managerId = e2.id 
+
+WHERE e1.salary > e2.salary
 
 
 13) Patients With a Condition
@@ -181,6 +191,50 @@ WHERE visit_id NOT IN
 )
 
 GROUP BY customer_id
+
+15) Classes More Than 5 Students
+
+https://leetcode.com/problems/classes-more-than-5-students/
+
+
+SELECT class
+
+FROM Courses
+
+GROUP BY class
+
+HAVING COUNT(student) >= 5
+
+16)  Game Play Analysis I
+
+https://leetcode.com/problems/game-play-analysis-i/
+
+SELECT player_id , MIN(event_date) AS first_login
+
+FROM Activity 
+
+GROUP BY player_id 
+
+17) List the Products Ordered in a Period
+
+https://leetcode.com/problems/list-the-products-ordered-in-a-period/
+
+SELECT product_name  , SUM(unit)  AS unit
+
+FROM Products 
+
+RIGHT JOIN Orders 
+
+ON Products.product_id  = Orders.product_id   
+
+WHERE order_date  BETWEEN '2020-02-01' AND '2020-02-29'  
+
+GROUP BY   Products.product_id    
+
+HAVING SUM(unit) >= 100
+
+
+
 
 
 
