@@ -342,9 +342,63 @@ GROUP BY Register.contest_id
 
 ORDER BY percentage DESC , Register.contest_id ASC
 
-26) 
+26) The Latest Login in 2020
 
+https://leetcode.com/problems/the-latest-login-in-2020/
 
+SELECT user_id , MAX(time_stamp) AS last_stamp          
+
+FROM Logins 
+
+WHERE YEAR(time_stamp) = 2020
+
+GROUP BY user_id 
+
+27) Average Time of Process per Machine
+
+https://leetcode.com/problems/average-time-of-process-per-machine/
+
+SELECT machine_id , ROUND((SUM(IF(activity_type = 'end', timestamp, -timestamp))) / COUNT(DISTINCT process_id) , 3) AS processing_time
+
+FROM Activity
+
+GROUP BY machine_id
+
+28) Daily Leads and Partners
+
+https://leetcode.com/problems/daily-leads-and-partners/
+
+SELECT date_id , make_name , COUNT(DISTINCT lead_id ) AS unique_leads , COUNT(DISTINCT partner_id) AS unique_partners 
+
+FROM DailySales
+
+GROUP BY date_id , make_name
+
+29) Fix Names in a Table
+
+https://leetcode.com/problems/fix-names-in-a-table/
+
+SELECT user_id , CONCAT(UPPER(SUBSTRING(name,1,1)),LOWER(SUBSTRING(name,2))) AS name 
+
+FROM users
+
+ORDER BY user_id ASC
+
+30) Count Salary Categories
+
+https://leetcode.com/problems/count-salary-categories/
+
+# writing alias once in first SELECT statement will suffice
+
+SELECT 'Low Salary' AS category , COUNT(account_id) AS accounts_count FROM accounts where income <20000    
+
+UNION ALL
+
+SELECT 'Average Salary' , COUNT(account_id) AS accounts_count FROM accounts WHERE income BETWEEN 20000 AND 50000
+
+UNION ALL
+
+SELECT 'High Salary' , COUNT(account_id) AS accounts_count FROM accounts WHERE income > 50000
 
 
 
