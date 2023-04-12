@@ -282,12 +282,33 @@ WHERE salary < 30000 AND manager_id NOT IN
 
  ORDER BY employee_id
  
- 21) 
+ 21) Top Travellers
 
+https://leetcode.com/problems/top-travellers/
 
+SELECT name , SUM(IF(distance IS NULL , 0 , distance)) AS travelled_distance 
 
+FROM Users 
 
+LEFT JOIN Rides 
 
+ON Rides.user_id = Users.id  
+
+GROUP BY Rides.user_id
+
+ORDER BY SUM(distance) DESC , NAME ASC
+
+22) Capital Gain/Loss
+
+https://leetcode.com/problems/capital-gainloss/
+
+SELECT stock_name , SUM(IF(operation = 'Sell' , price, -price)) AS capital_gain_loss                         # This can be solves using CASE WHEN as well
+
+FROM Stocks 
+
+GROUP BY stock_name    
+
+23) 
 
 
 
