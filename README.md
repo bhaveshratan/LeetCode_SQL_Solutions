@@ -233,6 +233,26 @@ GROUP BY   Products.product_id
 
 HAVING SUM(unit) >= 100
 
+18) Bank Account Summary II
+
+https://leetcode.com/problems/bank-account-summary-ii/
+
+SELECT name as NAME , SUM(amount) AS BALANCE    
+
+FROM USERS
+
+RIGHT JOIN Transactions     
+
+ON Users.account    =   Transactions.account    
+
+GROUP BY Transactions.account
+
+HAVING SUM(amount) > 10000
+
+
+
+
+
 
 
 
