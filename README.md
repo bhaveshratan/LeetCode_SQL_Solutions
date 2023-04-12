@@ -388,7 +388,7 @@ ORDER BY user_id ASC
 
 https://leetcode.com/problems/count-salary-categories/
 
-# writing alias once in first SELECT statement will suffice
+-- writing alias once in first SELECT statement will suffice
 
 SELECT 'Low Salary' AS category , COUNT(account_id) AS accounts_count FROM accounts where income <20000    
 
