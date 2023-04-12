@@ -308,8 +308,41 @@ FROM Stocks
 
 GROUP BY stock_name    
 
-23) 
+23) Group Sold Products By The Date
 
+https://leetcode.com/problems/group-sold-products-by-the-date/
+
+SELECT sell_date , COUNT(DISTINCT product) AS num_sold , GROUP_CONCAT( DISTINCT product ) AS PRODUCTS
+
+FROM Activities 
+
+GROUP BY sell_date  
+
+ORDER BY sell_date
+
+24) Recyclable and Low Fat Products
+
+https://leetcode.com/problems/recyclable-and-low-fat-products/
+
+SELECT product_id
+
+FROM Products
+
+WHERE low_fats = 'Y' AND recyclable = 'Y'
+
+25) Percentage of Users Attended a Contest
+
+https://leetcode.com/problems/percentage-of-users-attended-a-contest/
+
+SELECT Register.contest_id , ROUND((COUNT(DISTINCT Register.user_id)) / (COUNT(DISTINCT Users.user_id))*100,2) AS percentage
+
+FROM Users , Register
+
+GROUP BY Register.contest_id
+
+ORDER BY percentage DESC , Register.contest_id ASC
+
+26) 
 
 
 
