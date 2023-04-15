@@ -525,8 +525,75 @@ AND i1.tiv_2015 IN(
   WHERE pid != i2.pid
 )
 
+### 36) Actors and Directors Who Cooperated At Least Three Times
 
+https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/
 
+SELECT actor_id , director_id
+
+FROM ActorDirector
+
+GROUP BY actor_id , director_id
+
+HAVING COUNT(*) >= 3
+
+### 37) Project Employees I
+
+https://leetcode.com/problems/project-employees-i/
+
+SELECT Project.project_id , ROUND( SUM(experience_years) / COUNT(DISTINCT Employee.employee_id ),2) AS average_years 
+
+FROM Project 
+
+LEFT JOIN Employee
+
+ON Project.employee_id  = Employee.employee_id 
+
+GROUP BY project_id
+
+### 38) Department Top Three Salaries
+
+https://leetcode.com/problems/department-top-three-salaries/
+
+SELECT sq.Department , sq.Employee , sq.salary 
+
+FROM (
+
+SELECT d.name as Department , e.name as Employee, e.Salary as Salary, DENSE_RANK() OVER(PARTITION BY d.name ORDER BY e.Salary DESC) AS r
+
+FROM Employee e
+
+LEFT JOIN Department d
+
+ON e.departmentId = d.id 
+
+ORDER BY Salary DESC 
+
+) AS sq
+
+WHERE r<=3
+
+### 39) Second Highest Salary
+
+https://leetcode.com/problems/second-highest-salary/
+
+SELECT MAX(salary) AS secondHighestSalary
+
+FROM employee
+
+WHERE salary < (SELECT MAX(Salary) FROM Employee) 
+
+### 40) User Activity for the Past 30 Days I
+
+https://leetcode.com/problems/user-activity-for-the-past-30-days-i/
+
+SELECT activity_date AS day , COUNT( DISTINCT user_id) AS active_users 
+
+FROM Activity 
+
+WHERE activity_date BETWEEN DATE_SUB('2019-07-27', INTERVAL 30 DAY)+1 AND '2019-07-27'
+
+GROUP BY activity_date 
 
 
 
