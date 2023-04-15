@@ -400,5 +400,79 @@ UNION ALL
 
 SELECT 'High Salary' , COUNT(account_id) AS accounts_count FROM accounts WHERE income > 50000
 
+31) Department Highest Salary
+
+https://leetcode.com/problems/department-highest-salary/
+
+SELECT d.name AS Department , e.name AS Employee , e.salary AS Salary
+
+FROM Employee e
+
+LEFT JOIN Department d
+
+ON e.DepartmentId = d.Id
+
+WHERE (d.Id, e.Salary) IN (
+
+  SELECT  departmentId , MAX(salary) 
+
+  FROM Employee
+
+  GROUP BY DepartmentId
+)
+
+32) Game Play Analysis IV
+
+https://leetcode.com/problems/game-play-analysis-iv/
+
+WITH cte_activity AS (
+
+  SELECT * FROM Activity 
+)
+
+SELECT ROUND((COUNT(player_id) / (SELECT COUNT(DISTINCT player_id ) FROM cte_activity )),2)  AS fraction
+
+FROM Activity
+
+WHERE DATE_ADD(event_date , INTERVAL 1 DAY) IN (
+
+  SELECT event_date 
+
+  FROM Activity 
+)
+
+33)  Game Play Analysis IV
+
+https://leetcode.com/problems/game-play-analysis-iv/
+
+SELECT ROUND((SUM(IF(sq.first_login+1 = Activity.event_date , 1 , 0)) / COUNT(DISTINCT Activity.player_id ) ) , 2 ) AS fraction
+
+FROM ( SELECT player_id , min(event_date) AS first_login 
+
+FROM Activity
+
+GROUP BY player_id ) AS sq
+
+JOIN Activity
+
+ON sq.player_id = Activity.player_id
+
+### 34) Sales Analysis III
+
+https://leetcode.com/problems/sales-analysis-iii/
+
+SELECT  DISTINCT s.product_id  , p.product_name
+
+FROM Product p
+
+LEFT JOIN Sales s
+
+ON p.product_id = s.product_id
+
+GROUP BY s.product_id
+
+HAVING MIN(sale_date) >= '2019-01-01' AND MAX(sale_date) <= '2019-03-31'
+
+
 
 
