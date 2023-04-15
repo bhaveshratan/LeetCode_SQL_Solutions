@@ -1,7 +1,7 @@
 # LeetCode_SQL_Solutions
 Solutions to SQL problems on LeetCode
 
-1) Customers Who Never Order
+### 1) Customers Who Never Order
 
 https://leetcode.com/problems/customers-who-never-order/
 
@@ -16,7 +16,7 @@ on Customers.id = Orders.customerId
 
 where customerId IS NULL;
 
-2) Combine Two Tables
+### 2) Combine Two Tables
 
 https://leetcode.com/problems/combine-two-tables/
 
@@ -29,7 +29,7 @@ LEFT JOIN Address
 
 ON Person.personId = Address.personId;
 
-3) Number of Unique Subjects Taught by Each Teacher
+### 3) Number of Unique Subjects Taught by Each Teacher
 
 https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/
 
@@ -40,7 +40,7 @@ FROM Teacher
 
 GROUP BY teacher_id;
 
-4) Rising Temperature
+### 4) Rising Temperature
 
 https://leetcode.com/problems/rising-temperature/
 
@@ -50,7 +50,7 @@ FROM Weather Weath1, Weather Weath2
 
 WHERE dateDiff(Weath1.recordDate, Weath2.recordDate) = 1 AND Weath1.temperature  > Weath2.temperature
 
-5) Big Countries
+### 5) Big Countries
 
 https://leetcode.com/problems/big-countries/
 
@@ -61,7 +61,7 @@ FROM World
 WHERE area >= 3000000 OR population >= 25000000
 
 
-6) Duplicate Emails
+### 6) Duplicate Emails
 
 https://leetcode.com/problems/duplicate-emails/
 
@@ -73,7 +73,7 @@ GROUP BY email
 
 HAVING COUNT(email) > 1
 
-7) Sales Person
+### 7) Sales Person
 
 https://leetcode.com/problems/sales-person/
 
@@ -95,7 +95,7 @@ WHERE sales_id NOT IN (
 
 )
 
-8) Find Customer Referee
+### 8) Find Customer Referee
 
 https://leetcode.com/problems/find-customer-referee/
 
@@ -105,7 +105,7 @@ FROM Customer
 
 WHERE referee_id IS NULL OR referee_id !=2
 
-9) Find Followers Count
+### 9) Find Followers Count
 
 https://leetcode.com/problems/find-followers-count/
 
@@ -117,7 +117,7 @@ GROUP BY user_id
 
 ORDER BY user_id 
 
-10) Triangle Judgement
+### 10) Triangle Judgement
 
 https://leetcode.com/problems/triangle-judgement/
 
@@ -131,7 +131,7 @@ END AS triangle
 
 FROM Triangle;
 
-11) Employee Bonus
+### 11) Employee Bonus
 
 https://leetcode.com/problems/employee-bonus/
 
@@ -145,7 +145,7 @@ ON Employee.empId = Bonus.empId
 
 WHERE bonus < 1000 OR bonus IS NULL
 
-12) Employees Earning More Than Their Managers
+### 12) Employees Earning More Than Their Managers
 
 https://leetcode.com/problems/employees-earning-more-than-their-managers/
 
@@ -160,7 +160,7 @@ ON e1.managerId = e2.id
 WHERE e1.salary > e2.salary
 
 
-13) Patients With a Condition
+### 13) Patients With a Condition
 
 https://leetcode.com/problems/patients-with-a-condition/
 
@@ -170,7 +170,7 @@ FROM Patients
 
 WHERE conditions  LIKE 'DIAB1%' OR conditions  LIKE '% DIAB1%'                     # Note the space before DIAB1
 
-14) Customer Who Visited but Did Not Make Any Transactions
+### 14) Customer Who Visited but Did Not Make Any Transactions
 
 https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/
 
@@ -192,7 +192,7 @@ WHERE visit_id NOT IN
 
 GROUP BY customer_id
 
-15) Classes More Than 5 Students
+### 15) Classes More Than 5 Students
 
 https://leetcode.com/problems/classes-more-than-5-students/
 
@@ -205,7 +205,7 @@ GROUP BY class
 
 HAVING COUNT(student) >= 5
 
-16)  Game Play Analysis I
+### 16)  Game Play Analysis I
 
 https://leetcode.com/problems/game-play-analysis-i/
 
@@ -215,7 +215,7 @@ FROM Activity
 
 GROUP BY player_id 
 
-17) List the Products Ordered in a Period
+### 17) List the Products Ordered in a Period
 
 https://leetcode.com/problems/list-the-products-ordered-in-a-period/
 
@@ -233,7 +233,7 @@ GROUP BY   Products.product_id
 
 HAVING SUM(unit) >= 100
 
-18) Bank Account Summary II
+### 18) Bank Account Summary II
 
 https://leetcode.com/problems/bank-account-summary-ii/
 
@@ -249,7 +249,7 @@ GROUP BY Transactions.account
 
 HAVING SUM(amount) > 10000
 
-19) Customer Placing the Largest Number of Orders
+### 19) Customer Placing the Largest Number of Orders
 
 https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/
 
@@ -263,7 +263,7 @@ ORDER BY COUNT(order_number) DESC
 
 LIMIT 1
  
- 20) Employees Whose Manager Left the Company
+ ### 20) Employees Whose Manager Left the Company
 
 https://leetcode.com/problems/employees-whose-manager-left-the-company/
 
@@ -282,7 +282,7 @@ WHERE salary < 30000 AND manager_id NOT IN
 
  ORDER BY employee_id
  
- 21) Top Travellers
+ ### 21) Top Travellers
 
 https://leetcode.com/problems/top-travellers/
 
@@ -298,7 +298,7 @@ GROUP BY Rides.user_id
 
 ORDER BY SUM(distance) DESC , NAME ASC
 
-22) Capital Gain/Loss
+### 22) Capital Gain/Loss
 
 https://leetcode.com/problems/capital-gainloss/
 
@@ -308,7 +308,7 @@ FROM Stocks
 
 GROUP BY stock_name    
 
-23) Group Sold Products By The Date
+### 23) Group Sold Products By The Date
 
 https://leetcode.com/problems/group-sold-products-by-the-date/
 
@@ -320,7 +320,7 @@ GROUP BY sell_date
 
 ORDER BY sell_date
 
-24) Recyclable and Low Fat Products
+### 24) Recyclable and Low Fat Products
 
 https://leetcode.com/problems/recyclable-and-low-fat-products/
 
@@ -330,7 +330,7 @@ FROM Products
 
 WHERE low_fats = 'Y' AND recyclable = 'Y'
 
-25) Percentage of Users Attended a Contest
+### 25) Percentage of Users Attended a Contest
 
 https://leetcode.com/problems/percentage-of-users-attended-a-contest/
 
@@ -342,7 +342,7 @@ GROUP BY Register.contest_id
 
 ORDER BY percentage DESC , Register.contest_id ASC
 
-26) The Latest Login in 2020
+### 26) The Latest Login in 2020
 
 https://leetcode.com/problems/the-latest-login-in-2020/
 
@@ -354,7 +354,7 @@ WHERE YEAR(time_stamp) = 2020
 
 GROUP BY user_id 
 
-27) Average Time of Process per Machine
+### 27) Average Time of Process per Machine
 
 https://leetcode.com/problems/average-time-of-process-per-machine/
 
@@ -364,7 +364,7 @@ FROM Activity
 
 GROUP BY machine_id
 
-28) Daily Leads and Partners
+### 28) Daily Leads and Partners
 
 https://leetcode.com/problems/daily-leads-and-partners/
 
@@ -374,7 +374,7 @@ FROM DailySales
 
 GROUP BY date_id , make_name
 
-29) Fix Names in a Table
+### 29) Fix Names in a Table
 
 https://leetcode.com/problems/fix-names-in-a-table/
 
@@ -384,7 +384,7 @@ FROM users
 
 ORDER BY user_id ASC
 
-30) Count Salary Categories
+### 30) Count Salary Categories
 
 https://leetcode.com/problems/count-salary-categories/
 
@@ -400,7 +400,7 @@ UNION ALL
 
 SELECT 'High Salary' , COUNT(account_id) AS accounts_count FROM accounts WHERE income > 50000
 
-31) Department Highest Salary
+### 31) Department Highest Salary
 
 https://leetcode.com/problems/department-highest-salary/
 
@@ -421,7 +421,7 @@ WHERE (d.Id, e.Salary) IN (
   GROUP BY DepartmentId
 )
 
-32) Game Play Analysis IV
+### 32) Game Play Analysis IV
 
 https://leetcode.com/problems/game-play-analysis-iv/
 
@@ -441,7 +441,7 @@ WHERE DATE_ADD(event_date , INTERVAL 1 DAY) IN (
   FROM Activity 
 )
 
-33)  Game Play Analysis IV
+### 33)  Game Play Analysis IV
 
 https://leetcode.com/problems/game-play-analysis-iv/
 
@@ -472,6 +472,12 @@ ON p.product_id = s.product_id
 GROUP BY s.product_id
 
 HAVING MIN(sale_date) >= '2019-01-01' AND MAX(sale_date) <= '2019-03-31'
+
+### 35) Investments in 2016
+
+https://leetcode.com/problems/investments-in-2016/
+
+
 
 
 
