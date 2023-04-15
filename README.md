@@ -502,6 +502,31 @@ HAVING MIN(sale_date) >= '2019-01-01' AND MAX(sale_date) <= '2019-03-31'
 
 https://leetcode.com/problems/investments-in-2016/
 
+SELECT ROUND(SUM(i1.tiv_2016),2) AS tiv_2016 
+
+FROM Insurance i1
+
+INNER JOIN Insurance i2
+
+ON i1.pid = i2.pid
+
+WHERE (i1.lat , i1.lon) NOT IN (
+  
+  SELECT lat , lon 
+  FROM Insurance 
+  WHERE pid != i2.pid
+
+) 
+
+AND i1.tiv_2015 IN(
+
+  SELECT tiv_2015 
+  FROM Insurance 
+  WHERE pid != i2.pid
+)
+
+
+
 
 
 
