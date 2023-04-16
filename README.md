@@ -600,17 +600,27 @@ GROUP BY activity_date
 https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/
 
 WITH cte AS (
+
   SELECT requester_id, accepter_id
+  
   FROM RequestAccepted
+  
   UNION ALL
+  
   SELECT accepter_id , requester_id
+  
   FROM RequestAccepted
+  
 )
 
 SELECT requester_id AS id, COUNT(accepter_id) AS num
+
 FROM CTE
+
 GROUP BY requester_id
+
 ORDER BY COUNT(accepter_id) DESC
+
 LIMIT 1
 
 ### 42)
