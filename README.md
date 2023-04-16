@@ -623,7 +623,25 @@ ORDER BY COUNT(accepter_id) DESC
 
 LIMIT 1
 
-### 42)
+### 42) Biggest Single Number
+
+https://leetcode.com/problems/biggest-single-number/submissions/934812702/
+
+SELECT MAX(sq.num) AS num
+
+FROM(
+
+    SELECT num
+
+    FROM MyNumbers 
+
+    GROUP BY num
+
+    HAVING COUNT(num) = 1
+
+) AS sq
+
+
 
 
 
