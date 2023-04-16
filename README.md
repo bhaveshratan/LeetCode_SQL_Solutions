@@ -595,6 +595,25 @@ WHERE activity_date BETWEEN DATE_SUB('2019-07-27', INTERVAL 30 DAY)+1 AND '2019-
 
 GROUP BY activity_date 
 
+### 41) Friend Requests II: Who Has the Most Friends
+
+https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/
+
+WITH cte AS (
+  SELECT requester_id, accepter_id
+  FROM RequestAccepted
+  UNION ALL
+  SELECT accepter_id , requester_id
+  FROM RequestAccepted
+)
+
+SELECT requester_id AS id, COUNT(accepter_id) AS num
+FROM CTE
+GROUP BY requester_id
+ORDER BY COUNT(accepter_id) DESC
+LIMIT 1
+
+### 42)
 
 
 
