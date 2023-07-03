@@ -33,6 +33,15 @@ ON Person.personId = Address.personId;
 
 https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/
 
+
+SELECT teacher_id , COUNT( DISTINCT subject_id ) as cnt
+
+FROM Teacher
+
+GROUP BY teacher_id 
+
+--------------------
+
 SELECT ROUND(SUM(i1.tiv_2016),2) AS tiv_2016 
 
 FROM Insurance i1
